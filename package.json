@@ -1,0 +1,25 @@
+{
+  "name": "ionic-scripts",
+  "version": "0.0.1",
+  "description": "scripts/utils for ionic projects",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/driftyco/ionic-scripts.git"
+  },
+  "author": "Dan Bucholtz <dan.b@ionic.io> (http://ionic.io)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/driftyco/ionic-scripts/issues"
+  },
+  "homepage": "https://github.com/driftyco/ionic-scripts#readme",
+  "devDependencies": {
+    "@types/del": "2.2.30",
+    "@types/node": "6.0.38",
+    "del": "2.2.2",
+    "typescript": "2.0.2"
+  }
+}
