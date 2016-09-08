@@ -1,0 +1,29 @@
+{
+  "name": "@ionic/component-sass",
+  "version": "0.0.1",
+  "description": "",
+  "main": "dist/index.js",
+  "files": [
+    "dist/",
+    "README.md"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "prepublish": "npm build"
+  },
+  "keywords": [
+    "component",
+    "sass",
+    "ionic"
+  ],
+  "dependencies": {
+    "autoprefixer": "6.4.1",
+    "glob-all": "3.1.0",
+    "node-sass": "3.9.3",
+    "postcss": "5.2.0"
+  },
+  "devDependencies": {
+    "@types/node": "^6.0.38",
+    "typescript": "2.0.2"
+  }
+}
