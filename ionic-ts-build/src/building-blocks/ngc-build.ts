@@ -54,6 +54,8 @@ function copyTypescriptSourceToDestination(absolutePathSourceDir: string, absolu
 
 export function copyAndBuildTypescript(options: NgcBuildOptions): Promise<any> {
     return new Promise((resolve, reject) => {
+        console.log("Src Path: ", options.absolutePathSrcDir);
+        console.log("Dest Path: ", options.absolutePathDestDir);
         var stream = copyTypescriptSourceToDestination(options.absolutePathSrcDir, options.absolutePathDestDir, true);
         stream.on('end', function() {
             var destTsConfigPath = options.absolutePathDestDir + '/tsconfig.json';

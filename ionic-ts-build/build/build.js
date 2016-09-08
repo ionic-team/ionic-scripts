@@ -16,7 +16,7 @@ function runTsc() {
 }
 
 function runRollup(entryPointFilePath, outputBundlePath, bundleName) {
-    var rollup = require('rollup');
+    /*var rollup = require('rollup');
     var nodeResolve = require('rollup-plugin-node-resolve');
     var commonjs = require('rollup-plugin-commonjs');
     return rollup.rollup({
@@ -27,11 +27,30 @@ function runRollup(entryPointFilePath, outputBundlePath, bundleName) {
         ]
     }).then(function(bundle){
         return bundle.write({
-            format: 'iife',
+            format: 'cjs',
             dest: outputBundlePath,
-            moduleName: bundleName
         });
     });
+    */
+    return new Promise(function(resolve, reject) {
+        var webpack = require('webpack');
+        var config = require('./webpack.config');
+        var compiler = webpack(config);
+        compiler.run(function(err, stats) {
+            if (err) {
+                reject(err);
+                return;
+            }
+            resolve(outputBundlePath);
+        });
+    });
+}
+
+function addShebang(pathToFile) {
+    var fs = require('fs');
+    var fileString = fs.readFileSync(pathToFile).toString();
+    var newFileContent = '#!/usr/bin/env node\n' + fileString;
+    fs.writeFileSync(pathToFile, newFileContent);
 }
 
 function copyNpmPackageJson() {
@@ -54,6 +73,8 @@ function doBuild() {
         var distFileName = path.basename(entryPoint);
         var bundleName = distFileName.replace('.js', '').replace('-', '');
         return runRollup(entryPoint, './dist/ionic-scripts/' + distFileName, bundleName);
+    }).then(function(bundlePath) {
+        return addShebang(bundlePath);
     }).then(function() {
         copyNpmPackageJson();
     }).catch(function(err){
