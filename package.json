@@ -1,25 +1,32 @@
 {
-  "name": "ionic-scripts",
+  "name": "@ionic/scripts",
   "version": "0.0.1",
   "description": "scripts/utils for ionic projects",
-  "main": "index.js",
-  "scripts": {
-    "test": "test"
-  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/driftyco/ionic-scripts.git"
   },
-  "author": "Dan Bucholtz <dan.b@ionic.io> (http://ionic.io)",
-  "license": "ISC",
+  "author": "Ionic Team <hi@ionic.io> (http://ionic.io)",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/driftyco/ionic-scripts/issues"
   },
   "homepage": "https://github.com/driftyco/ionic-scripts#readme",
+  "scripts": {
+    "clean": "node build/clean",
+    "bundle-build-script": "node build/build ./src/scripts/build-app.ts"
+  },
   "devDependencies": {
     "@types/del": "2.2.30",
     "@types/node": "6.0.38",
+    "@types/uglify-js": "2.0.27",
+    "@types/vinyl-fs": "0.0.27",
     "del": "2.2.2",
-    "typescript": "2.0.2"
+    "rollup": "0.34.13",
+    "rollup-plugin-commonjs": "4.1.0",
+    "rollup-plugin-node-resolve": "2.0.0",
+    "typescript": "2.0.2",
+    "uglify-js": "2.7.3",
+    "vinyl-fs": "2.4.3"
   }
 }

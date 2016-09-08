@@ -5,12 +5,13 @@
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "lib": ["es2015"],
-    "module": "commonjs",
+    "module": "es2015",
     "moduleResolution": "node",
     "noImplicitAny": false,
+    "outDir": "./dist/compiled",
     "removeComments": true,
     "target": "es5",
-    "types": ["jasmine", "node", "protractor"]
+    "types": ["node"]
   },
   "include": [
     "./src/**/*.ts"

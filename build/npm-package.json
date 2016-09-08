@@ -1,0 +1,7 @@
+{
+    "name": "@ionic/scripts",
+    "version": "0.0.1",
+    "bin": {
+        "build": "./build-app.js"
+    }
+}
