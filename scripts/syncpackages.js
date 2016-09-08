@@ -8,7 +8,7 @@ var path = require('path');
 var masterPackageJson = JSON.parse(fs.readFileSync('./package.json'));
 
 var projects = [
-  './component-sass',
+  './ionic-component-sass',
   './ionic-ts-build'
 ];
 

@@ -1,21 +1,18 @@
 {
-  "private": true,
-  "name": "@ionic/scripts-srcs",
+  "name": "@ionic/scripts",
   "version": "0.0.1",
-  "description": "scripts/utils for ionic projects",
+  "description": "scripts for ionic projects",
+  "homepage": "http//ionicframework.com/",
+  "author": "Ionic Team <hi@ionic.io> (http://ionic.io)",
+  "license": "MIT",
+  "files": [
+    "dist/",
+    "README.md"
+  ],
+  "main": "dist/index.js",
   "scripts": {
     "syncpackages": "node ./scripts/syncpackages.js"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/driftyco/ionic-scripts.git"
-  },
-  "author": "Ionic Team <hi@ionic.io> (http://ionic.io)",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/driftyco/ionic-scripts/issues"
-  },
-  "homepage": "https://github.com/driftyco/ionic-scripts#readme",
   "devDependencies": {
     "@types/del": "2.2.30",
     "@types/node": "6.0.38",
@@ -28,5 +25,12 @@
     "typescript": "2.0.2",
     "uglify-js": "2.7.3",
     "vinyl-fs": "2.4.3"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/driftyco/ionic-scripts.git"
+  },
+  "bugs": {
+    "url": "https://github.com/driftyco/ionic-scripts/issues"
   }
 }

@@ -1,8 +1,8 @@
 {
-  "name": "@ionic/scripts",
+  "name": "@ionic/ts-build",
   "version": "0.0.1",
   "description": "scripts/utils for ionic projects",
-  "homepage": "https://github.com/driftyco/ionic-scripts#readme",
+  "homepage": "http//ionicframework.com/",
   "author": "Ionic Team <hi@ionic.io> (http://ionic.io)",
   "license": "MIT",
   "scripts": {

@@ -1,1 +1,1 @@
-# ionic-scripts
+# @ionic/ts-build
