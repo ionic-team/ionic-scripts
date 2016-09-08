@@ -8,7 +8,8 @@ var path = require('path');
 var masterPackageJson = JSON.parse(fs.readFileSync('./package.json'));
 
 var projects = [
-  './component-sass'
+  './component-sass',
+  './ionic-ts-build'
 ];
 
 projects.forEach(function(projectRoot) {
@@ -62,11 +63,11 @@ function orderKeys(oldObj) {
   copyOver('homepage');
   copyOver('author');
   copyOver('license');
-  copyOver('scripts');
+  copyOver('files');
   copyOver('main');
   copyOver('jsnext:main');
   copyOver('module');
-  copyOver('files');
+  copyOver('scripts');
   copyOver('dependencies');
   copyOver('devDependencies');
   copyOver('repository');

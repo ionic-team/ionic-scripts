@@ -2,20 +2,18 @@
   "name": "@ionic/component-sass",
   "version": "0.0.1",
   "description": "",
-  "main": "dist/index.js",
+  "homepage": "https://github.com/driftyco/ionic-scripts#readme",
+  "author": "Ionic Team <hi@ionic.io> (http://ionic.io)",
+  "license": "MIT",
   "files": [
     "dist/",
     "README.md"
   ],
+  "main": "dist/index.js",
   "scripts": {
     "build": "tsc",
     "prepublish": "npm build"
   },
-  "keywords": [
-    "component",
-    "sass",
-    "ionic"
-  ],
   "dependencies": {
     "autoprefixer": "6.4.1",
     "glob-all": "3.1.0",
@@ -23,7 +21,19 @@
     "postcss": "5.2.0"
   },
   "devDependencies": {
-    "@types/node": "^6.0.38",
+    "@types/node": "6.0.38",
     "typescript": "2.0.2"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/driftyco/ionic-scripts.git"
+  },
+  "bugs": {
+    "url": "https://github.com/driftyco/ionic-scripts/issues"
+  },
+  "keywords": [
+    "component",
+    "sass",
+    "ionic"
+  ]
 }
