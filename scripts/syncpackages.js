@@ -6,6 +6,7 @@
 var fs = require('fs');
 var path = require('path');
 var masterPackageJson = JSON.parse(fs.readFileSync('./package.json'));
+var masterLicense = fs.readFileSync('./LICENSE');
 
 var projects = [
   './ionic-component-sass',
@@ -16,35 +17,48 @@ projects.forEach(function(projectRoot) {
   var projectPackageJsonFile = path.join(projectRoot, 'package.json');
   var projectPackageJson = JSON.parse(fs.readFileSync(projectPackageJsonFile));
 
+  // copy over package.json values that should all be the same for each package
   projectPackageJson.homepage = masterPackageJson.homepage;
   projectPackageJson.author = masterPackageJson.author;
   projectPackageJson.license = masterPackageJson.license;
   projectPackageJson.repository = masterPackageJson.repository;
   projectPackageJson.bugs = masterPackageJson.bugs;
 
-  if (projectPackageJson.dependencies && masterPackageJson.devDependencies) {
-    for (var key in projectPackageJson.dependencies) {
-      if (masterPackageJson.devDependencies[key]) {
-        projectPackageJson.dependencies[key] = masterPackageJson.devDependencies[key];
-      }
-    }
-  }
+  // make sure each project's dependencies/devDependencies are using
+  // the same version as the root project so we're all *nsync
+  copyVersion(projectPackageJson.dependencies, masterPackageJson.dependencies);
+  copyVersion(projectPackageJson.dependencies, masterPackageJson.devDependencies);
+  copyVersion(projectPackageJson.devDependencies, masterPackageJson.dependencies);
+  copyVersion(projectPackageJson.devDependencies, masterPackageJson.devDependencies);
 
-  if (projectPackageJson.devDependencies && masterPackageJson.devDependencies) {
-    for (var key in projectPackageJson.devDependencies) {
-      if (masterPackageJson.devDependencies[key]) {
-        projectPackageJson.devDependencies[key] = masterPackageJson.devDependencies[key];
-      }
-    }
-  }
-
+  // put all the package.json property keys in the same order
   var projectPackageJsonStr = JSON.stringify(orderKeys(projectPackageJson), null, 2);
 
+  // standardize each package.json file
   fs.writeFile(projectPackageJsonFile, projectPackageJsonStr, function(err){
     if (err) throw err;
     console.log('Updated', projectPackageJsonFile);
   });
+
+  // ensure all licenses are the same
+  var projectLicenseFile = path.join(projectRoot, 'LICENSE');
+  fs.writeFile(projectLicenseFile, masterLicense, function(err){
+    if (err) throw err;
+    console.log('Updated', projectLicenseFile);
+  });
+
 });
+
+
+function copyVersion(dest, src) {
+  if (dest && src) {
+    for (var key in dest) {
+      if (src[key]) {
+        dest[key] = src[key];
+      }
+    }
+  }
+}
 
 
 function orderKeys(oldObj) {
@@ -64,6 +78,7 @@ function orderKeys(oldObj) {
   copyOver('author');
   copyOver('license');
   copyOver('files');
+  copyOver('bin');
   copyOver('main');
   copyOver('jsnext:main');
   copyOver('module');

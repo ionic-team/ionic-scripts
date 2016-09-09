@@ -5,6 +5,11 @@
   "homepage": "http//ionicframework.com/",
   "author": "Ionic Team <hi@ionic.io> (http://ionic.io)",
   "license": "MIT",
+  "files": [
+    "build/",
+    "LICENSE",
+    "README.md"
+  ],
   "scripts": {
     "clean": "node build/clean",
     "bundle-build-script": "node build/build ./src/scripts/build-app.ts"

@@ -13,7 +13,12 @@
       "node"
     ]
   },
+  "files": [
+    "./src/index.ts"
+  ],
   "exclude": [
+    "ionic-component-sass",
+    "ionic-ts-build",
     "node_modules"
   ]
 }
